@@ -1,0 +1,686 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+
+class FournisseursTableSeeder extends Seeder
+{
+
+    /**
+     * Auto generated seed file
+     *
+     * @return void
+     */
+    public function run()
+    {
+        
+
+        \DB::table('fournisseurs')->delete();
+        
+        \DB::table('fournisseurs')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
+                'nom' => 'Inconnu',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'nom' => 'Badis  BSM Bir Eljir',
+                'telephone1' => '1',
+                'telephone2' => '1',
+                'address' => 'ORAN',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'nom' => 'first tech',
+                'telephone1' => '5',
+                'telephone2' => '5',
+                'address' => 'ORAN',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            3 => 
+            array (
+                'id' => 4,
+                'nom' => 'vide30',
+                'telephone1' => '32',
+                'telephone2' => '33',
+                'address' => '34',
+                'email' => NULL,
+                'wilaya_id' => 37,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            4 => 
+            array (
+                'id' => 5,
+                'nom' => 'abd elhadi manssour',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => 'ORAN',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            5 => 
+            array (
+                'id' => 6,
+                'nom' => 'assili',
+                'telephone1' => '8',
+                'telephone2' => '8',
+                'address' => 'ALGER',
+                'email' => NULL,
+                'wilaya_id' => 16,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            6 => 
+            array (
+                'id' => 7,
+                'nom' => 'BIO Informatique',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            7 => 
+            array (
+                'id' => 8,
+                'nom' => 'Birou Inkpro oran',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            8 => 
+            array (
+                'id' => 9,
+                'nom' => 'boulahya blatou',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            9 => 
+            array (
+                'id' => 10,
+                'nom' => 'burofast crown',
+                'telephone1' => '18',
+                'telephone2' => '18',
+                'address' => 'ORAN',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            10 => 
+            array (
+                'id' => 11,
+                'nom' => 'ceci',
+                'telephone1' => '21288614',
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            11 => 
+            array (
+                'id' => 12,
+                'nom' => 'compu',
+                'telephone1' => '3',
+                'telephone2' => '3',
+                'address' => 'ALGER',
+                'email' => NULL,
+                'wilaya_id' => 16,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            12 => 
+            array (
+                'id' => 13,
+                'nom' => 'ECC GALAXY Belkacem',
+                'telephone1' => '557031065',
+                'telephone2' => NULL,
+                'address' => 'bab ezouar',
+                'email' => NULL,
+                'wilaya_id' => 16,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            13 => 
+            array (
+                'id' => 14,
+                'nom' => 'ElQods',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            14 => 
+            array (
+                'id' => 15,
+                'nom' => 'ESO MARKET EL-OULOUM',
+                'telephone1' => '540081919',
+                'telephone2' => '5555944103',
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            15 => 
+            array (
+                'id' => 16,
+                'nom' => 'Hamza',
+                'telephone1' => '36',
+                'telephone2' => '36',
+                'address' => 'ORAN',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            16 => 
+            array (
+                'id' => 17,
+                'nom' => 'hard soft',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            17 => 
+            array (
+                'id' => 18,
+                'nom' => 'houari',
+                'telephone1' => '2',
+                'telephone2' => '2',
+                'address' => 'ORAN',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            18 => 
+            array (
+                'id' => 19,
+                'nom' => 'ihsan',
+                'telephone1' => '20',
+                'telephone2' => '20',
+                'address' => 'ALGER',
+                'email' => NULL,
+                'wilaya_id' => 16,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            19 => 
+            array (
+                'id' => 20,
+                'nom' => 'khlil',
+                'telephone1' => '10',
+                'telephone2' => '10',
+                'address' => 'MASCARA',
+                'email' => NULL,
+                'wilaya_id' => 29,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            20 => 
+            array (
+                'id' => 21,
+                'nom' => 'legend',
+                'telephone1' => '13',
+                'telephone2' => '13',
+                'address' => 'ORAN',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            21 => 
+            array (
+                'id' => 22,
+                'nom' => 'MEGASTORE',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => 'castor oran',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            22 => 
+            array (
+                'id' => 23,
+                'nom' => 'mohamed mdinne jdida',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            23 => 
+            array (
+                'id' => 24,
+                'nom' => 'monochrome oran',
+                'telephone1' => '770506666',
+                'telephone2' => NULL,
+                'address' => 'renmohra khaled',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            24 => 
+            array (
+                'id' => 25,
+                'nom' => 'mourad mdinne jdida',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            25 => 
+            array (
+                'id' => 26,
+                'nom' => 'newtech',
+                'telephone1' => '',
+                'telephone2' => '',
+                'address' => 'oran',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            26 => 
+            array (
+                'id' => 27,
+                'nom' => 'PCFIX',
+                'telephone1' => '770966266',
+                'telephone2' => '555284422',
+                'address' => '41538876',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            27 => 
+            array (
+                'id' => 28,
+                'nom' => 'SIMOTELECOM Karim',
+                'telephone1' => '559721772',
+                'telephone2' => NULL,
+                'address' => 'Castor',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            28 => 
+            array (
+                'id' => 29,
+                'nom' => 'Sliman zitouni',
+                'telephone1' => '16',
+                'telephone2' => '16',
+                'address' => 'ORAN',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            29 => 
+            array (
+                'id' => 30,
+                'nom' => 'taqwa',
+                'telephone1' => '4',
+                'telephone2' => '4',
+                'address' => 'ALGER',
+                'email' => NULL,
+                'wilaya_id' => 16,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            30 => 
+            array (
+                'id' => 31,
+                'nom' => 'tayeb jeux mdina jdida',
+                'telephone1' => '0556261476',
+                'telephone2' => '',
+                'address' => '',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            31 => 
+            array (
+                'id' => 32,
+                'nom' => 'Varicom Hakim',
+                'telephone1' => '0661245740',
+                'telephone2' => '0550602906',
+                'address' => '0671097493',
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            32 => 
+            array (
+                'id' => 33,
+                'nom' => 'EL-Feth',
+                'telephone1' => '',
+                'telephone2' => '',
+                'address' => 'Oran',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            33 => 
+            array (
+                'id' => 34,
+                'nom' => 'el ouloum',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            34 => 
+            array (
+                'id' => 36,
+                'nom' => 'TAEB MDINA JDIDA TELECOMMANDE 05 59 26 14 76',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            35 => 
+            array (
+                'id' => 37,
+                'nom' => 'BENKHEDDA Mdina JDIDA Feu rouge ',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            36 => 
+            array (
+                'id' => 38,
+                'nom' => 'Wali Medina Telephone 05 49 14 53 27',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            37 => 
+            array (
+                'id' => 39,
+                'nom' => 'lahlah',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            38 => 
+            array (
+                'id' => 40,
+                'nom' => 'mounir amirali',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            39 => 
+            array (
+                'id' => 41,
+                'nom' => 'hamza accessoires ',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            40 => 
+            array (
+                'id' => 42,
+                'nom' => 'Gplanet 0791026737 0663035744',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            41 => 
+            array (
+                'id' => 43,
+                'nom' => 'BSM Centre',
+                'telephone1' => 'Ahmed 0556920588',
+                'telephone2' => 'Rostom',
+                'address' => '',
+                'email' => NULL,
+                'wilaya_id' => 29,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            42 => 
+            array (
+                'id' => 44,
+                'nom' => 'Microbill oran choupt',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            43 => 
+            array (
+                'id' => 45,
+                'nom' => 'Abdelkader Meslem',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 29,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            44 => 
+            array (
+                'id' => 46,
+                'nom' => 'Mendas Tarek Bnou Ziad',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            45 => 
+            array (
+                'id' => 47,
+                'nom' => 'pc house',
+                'telephone1' => '0555511856',
+                'telephone2' => NULL,
+                'address' => '43 jules grifier rue heredia',
+                'email' => NULL,
+                'wilaya_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            46 => 
+            array (
+                'id' => 48,
+                'nom' => 'EL-HETH ',
+                'telephone1' => '',
+                'telephone2' => '',
+                'address' => '',
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            47 => 
+            array (
+                'id' => 49,
+                'nom' => 'commercial@citylabinfo.com ',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            48 => 
+            array (
+                'id' => 50,
+                'nom' => 'AZ Infortronic 0561 60 30 80 / 0561 60 80 80 abdelhak chargeur>10 batterie>5 ecran>5',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            49 => 
+            array (
+                'id' => 51,
+                'nom' => 'FULL DESIGN66',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            50 => 
+            array (
+                'id' => 52,
+                'nom' => '52Castor STAEDLER',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            51 => 
+            array (
+                'id' => 53,
+                'nom' => 'CHADLI Abdelkrim Maintennance ecran',
+                'telephone1' => NULL,
+                'telephone2' => NULL,
+                'address' => NULL,
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            52 => 
+            array (
+                'id' => 54,
+                'nom' => 'IBRAHIM  ',
+                'telephone1' => '0556208856',
+                'telephone2' => '',
+                'address' => '',
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            53 => 
+            array (
+                'id' => 55,
+                'nom' => 'Hamza',
+                'telephone1' => '0675104922',
+                'telephone2' => '0778881138',
+                'address' => 'Sidi Aissa',
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            54 => 
+            array (
+                'id' => 56,
+                'nom' => 'NEW PROTECH Computer',
+                'telephone1' => '0540309434',
+                'telephone2' => '0551740000',
+                'address' => '',
+                'email' => NULL,
+                'wilaya_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+        ));
+        
+        
+    }
+}
