@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class Perte extends Model
 {
@@ -14,6 +16,9 @@ class Perte extends Model
         "etat",
         'quantite'
     ];
+
+
+
 
     public function article(){
         return $this->belongsTo(Article::class);

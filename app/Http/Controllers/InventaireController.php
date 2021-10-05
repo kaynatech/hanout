@@ -8,8 +8,14 @@ use Illuminate\Http\Request;
 
 class InventaireController extends Controller
 {
-    public function index(){
-        $inventaires = Inventaire::with(['article' , 'article.categorie'])->get();
+    public function index($type = null ){
+        if($type == 'vente'){
+            $inventaires = Inventaire::where(['type' , $type ])->with(['article' , 'article.categorie'])->get();
+        }
+        else{
+            $inventaires = Inventaire::with(['article' , 'article.categorie' , 'user'])->get();
+        }
+
         return view('inventaire.index' , [
             'inventaires' => $inventaires 
         ]);

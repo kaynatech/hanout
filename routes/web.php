@@ -192,4 +192,4 @@ Route::group(['prefix'=> 'inventaire' ,  "middleware" => "auth"] , function(){
 });
 
 // verification de caise
-Route::get('/verification_caise/{id}' , [VerificationCaiseController::class , 'index']) ;
+Route::get('/verification_caise/{id?}' , [VerificationCaiseController::class , 'index']) ;

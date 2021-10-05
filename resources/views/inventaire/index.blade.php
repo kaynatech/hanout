@@ -12,6 +12,8 @@
                             <th scope="col">designiation</th>
                             <th scope="col">categorie</th>
                             <th scope="col">quantite</th>
+                            <th scope="col">Declarer par</th>
+                            <th scope="col">date</th>
                             <th scope="col">Action</th>
 
                         </tr>
@@ -24,6 +26,9 @@
                                 <td>{{ $inventaire->article->designiation }}</td>
                                 <td>{{ $inventaire->article->categorie->nom ?? '' }}</td>
                                 <td>{{ $inventaire->article->quantite }}</td>
+                                <td>{{ $inventaire->user->name ?? '' }} </td>
+                                <td>{{ $inventaire->created_at ?? '' }} </td>
+
                                 <td> <a href="{{ route('delete_inventaire' , ['id' => $inventaire->id ])}}" class="btn btn-success">Verifier</a></td>
                             </tr>
                         @endforeach

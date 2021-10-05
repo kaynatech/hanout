@@ -4,9 +4,10 @@ namespace App\Providers;
 
 use App\Models\Article;
 use App\Models\Caise;
+use App\Models\Perte;
 use App\Observers\CaiseObserver;
 use App\Observers\ArticleObserver;
-
+use App\Observers\PerteObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -44,5 +45,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Caise::observe(CaiseObserver::class);
         Article::observe(ArticleObserver::class);
+        Perte::observe(PerteObserver::class);
     }
 }

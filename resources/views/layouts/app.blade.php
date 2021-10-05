@@ -94,13 +94,37 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('inventaire') }}">
+
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Inventaire 
-                                <span class="badge badge-light" id="vente_temp_badge">
-                                    {{ \App\models\Inventaire::count() }}
-                                </span>
                             </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('inventaire' ) }}">
+                                    Inventaure  
+                                    <span class="badge badge-light" id="vente_temp_badge">
+                                        {{ \App\models\Inventaire::count() }}
+                                    </span>
+                                </a>
+                                <a class="dropdown-item" href="{{ route('inventaire' , ['type' => 'vente']) }}">
+                                    Inventaure ventes 
+                                </a>
+                                <a class="dropdown-item" href="{{ route('inventaire' , ['type' => 'perte']) }}">
+                                    Historique des perte
+                                </a>
+                                <a class="dropdown-item" href="{{ route('inventaire' ,['type' => 'trouver'] ) }}">
+                                    Historique des trouver
+                                </a>
+                                <a class="dropdown-item" href="{{ route('inventaire', ['type' => 'achat']) }}">
+                                    Historique des achat
+                                </a>
+                                <a class="dropdown-item" href="{{ route('inventaire', ['type' => 'endomager']) }}">
+                                    Historique des endomager
+                                </a>
+                                
+                            </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
