@@ -15,9 +15,6 @@ class ArticleObserver
      */
     public function created(Article $article)
     {
-        $inventaite = Inventaire::create([
-            'article_id' => $article->id 
-        ]);
     }
 
     /**
@@ -28,9 +25,6 @@ class ArticleObserver
      */
     public function updated(Article $article)
     {
-        $inventaite = Inventaire::create([
-            'article_id' => $article->id 
-        ]);
     }
 
     /**

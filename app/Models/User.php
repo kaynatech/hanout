@@ -68,7 +68,7 @@ class User extends Authenticatable
     // caise
     public function getCaisseAttribute(){
         if($this->hasMany(Caise::class , "user_id")){
-            return $this->hasMany(Caise::class , "user_id")->orderBy('created_at', 'asc')->first() ;
+            return $this->hasMany(Caise::class , "user_id")->orderBy('created_at', 'desc')->first() ;
         }
         else{
             return null ;

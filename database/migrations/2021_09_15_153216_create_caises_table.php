@@ -19,8 +19,8 @@ class CreateCaisesTable extends Migration
             $table->integer('valeur_articles')->default(0);
             $table->integer("valeur")->default(0);
             $table->integer("changement")->default(0);
-            $table->foreignId('user_id')->nullable()->constrained();
             $table->unsignedBigInteger('changer_id');
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->foreign('changer_id')->references('id')->on('users');
             $table->timestamps();
         });
