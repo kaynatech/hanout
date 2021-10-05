@@ -16,7 +16,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $fournisseurs = Cache::remember('fournisseur' , 60 , function(){
+        $fournisseurs = Cache::remember('fournisseur', 60, function () {
             return Fournisseur::all();
         });
         return view(
@@ -32,16 +32,30 @@ class ArticleController extends Controller
         $des1 = $request->designiation1;
         $des2 = $request->designiation2;
         $des3 = $request->designiation3;
-
-        $articles = Article::select('id', 'designiation' , 'prix' , 'quantite' , 'prix_vente1', 'prix_vente2', 'prix_vente3' , 'user_id' )->
-            with([
-                'categorie' => function ($q){
-                    $q->select('nom','id');
-                }, 
+        $code = $request->code;
+        if ($code) {
+            $articles = Article::select('id', 'designiation', 'prix', 'quantite', 'prix_vente1', 'prix_vente2', 'prix_vente3', 'user_id')->with([
+                'categorie' => function ($q) {
+                    $q->select('nom', 'id');
+                },
                 'achats' => function ($q) {
                     $q->orderBy('created_at', 'desc')->first();
-                    }, 
-                'proprietaire'])
+                },
+                'proprietaire'
+            ])
+            ->Where(
+                'id' , $code 
+            )->limit(1)->get();
+        } else {
+            $articles = Article::select('id', 'designiation', 'prix', 'quantite', 'prix_vente1', 'prix_vente2', 'prix_vente3', 'user_id')->with([
+                    'categorie' => function ($q) {
+                        $q->select('nom', 'id');
+                    },
+                    'achats' => function ($q) {
+                        $q->orderBy('created_at', 'desc')->first();
+                    },
+                    'proprietaire'
+                ])
                 ->Where(
                     [
                         ["designiation", "like", "%$des1%"],
@@ -49,7 +63,8 @@ class ArticleController extends Controller
                         ["designiation", "like", "%$des3%"],
                         ["quantite", ">", "0"],
                     ]
-        )->limit(30)->get();
+                )->limit(30)->get();
+        }
         // dd($articles->toArray());
         return view("article.fetch", ["articles" => $articles]);
     }
@@ -152,8 +167,9 @@ class ArticleController extends Controller
         return redirect("/article/$id");
     }
 
-    public function fetchWithId(Request $request){
+    public function fetchWithId(Request $request)
+    {
         $article = Article::findOrFail($request->id);
-        return $article ;
+        return $article;
     }
 }

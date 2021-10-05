@@ -23,7 +23,7 @@
             </div>
             <div class="col-md-3">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Code" aria-label="Username"
+                    <input id="code" type="text" class="form-control" placeholder="Code" aria-label="Username"
                         aria-describedby="basic-addon1" onblur="search();">
                 </div>
             </div>
@@ -244,6 +244,7 @@
             const des1 = $('#search1').val()
             const des2 = $('#search2').val()
             const des3 = $('#search3').val()
+            const code = $('#code').val()
 
             const {
                 data
@@ -253,6 +254,7 @@
                     designiation1: des1,
                     designiation2: des2,
                     designiation3: des3,
+                    code,
 
                 }
             })
