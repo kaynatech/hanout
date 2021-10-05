@@ -40,7 +40,6 @@
 
                         <div class="form-group row">
                             <label for="role" class="col-md-4 col-form-label text-md-right">Role</label>
-
                             <div class="col-md-6">
                                 <select name="role_id" class="form-control" name="role_id">
                                     <option  value="2">Vendeur</option>

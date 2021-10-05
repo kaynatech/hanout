@@ -186,10 +186,10 @@ Route::group(['prefix'=> 'facture_achat' ,  "middleware" => "auth"] , function()
 // inventaire 
 
 Route::group(['prefix'=> 'inventaire' ,  "middleware" => "auth"] , function(){
-    Route::get('/' , [InventaireController::class , 'index'])->name('inventaire');
+    Route::get('/{type}' , [InventaireController::class , 'index'])->name('inventaire');
     Route::get('/{id}/delete', [InventaireController::class , 'delete'])->name('delete_inventaire');
 
 });
 
 // verification de caise
-Route::get('/verification_caise/{id?}' , [VerificationCaiseController::class , 'index']) ;
+Route::get('/verification_caise/{id}' , [VerificationCaiseController::class , 'index']) ;

@@ -102,7 +102,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('inventaire' ) }}">
+                                <a class="dropdown-item" href="{{ route('inventaire' , ['type' => 'all'] ) }}">
                                     Inventaure  
                                     <span class="badge badge-light" id="vente_temp_badge">
                                         {{ \App\models\Inventaire::count() }}

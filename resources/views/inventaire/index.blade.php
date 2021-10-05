@@ -13,6 +13,7 @@
                             <th scope="col">categorie</th>
                             <th scope="col">quantite</th>
                             <th scope="col">Declarer par</th>
+                            <th scope="col">type</th>
                             <th scope="col">date</th>
                             <th scope="col">Action</th>
 
@@ -27,9 +28,9 @@
                                 <td>{{ $inventaire->article->categorie->nom ?? '' }}</td>
                                 <td>{{ $inventaire->article->quantite }}</td>
                                 <td>{{ $inventaire->user->name ?? '' }} </td>
+                                <td>{{ $inventaire->type ?? '' }} </td>
                                 <td>{{ $inventaire->created_at ?? '' }} </td>
-
-                                <td> <a href="{{ route('delete_inventaire' , ['id' => $inventaire->id ])}}" class="btn btn-success">Verifier</a></td>
+                                <td> <a onclick="delet('{{ route('delete_inventaire' , ['id' => $inventaire->id ])}}')" class="btn btn-success">Verifier</a></td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -39,6 +40,15 @@
         </div>
     </div>
     <script>
+
+        const delet = async(route) => {
+            try {
+                await axios.get(route)
+                location.reload()
+            } catch (error) {
+                
+            }
+        }
 
 
     </script>

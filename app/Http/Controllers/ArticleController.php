@@ -34,10 +34,8 @@ class ArticleController extends Controller
         $des3 = $request->designiation3;
         $code = $request->code;
         if ($code) {
-            $articles = Article::select('id', 'designiation', 'prix', 'quantite', 'prix_vente1', 'prix_vente2', 'prix_vente3', 'user_id')->with([
-                'categorie' => function ($q) {
-                    $q->select('nom', 'id');
-                },
+            $articles = Article::with([
+                'categorie' ,
                 'achats' => function ($q) {
                     $q->orderBy('created_at', 'desc')->first();
                 },
@@ -47,10 +45,8 @@ class ArticleController extends Controller
                 'id' , $code 
             )->limit(1)->get();
         } else {
-            $articles = Article::select('id', 'designiation', 'prix', 'quantite', 'prix_vente1', 'prix_vente2', 'prix_vente3', 'user_id')->with([
-                    'categorie' => function ($q) {
-                        $q->select('nom', 'id');
-                    },
+            $articles = Article::with([
+                    'categorie',
                     'achats' => function ($q) {
                         $q->orderBy('created_at', 'desc')->first();
                     },
@@ -65,7 +61,6 @@ class ArticleController extends Controller
                     ]
                 )->limit(30)->get();
         }
-        // dd($articles->toArray());
         return view("article.fetch", ["articles" => $articles]);
     }
 

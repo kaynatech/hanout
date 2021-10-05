@@ -9,21 +9,20 @@ use Illuminate\Http\Request;
 class InventaireController extends Controller
 {
     public function index($type = null ){
-        if($type == 'vente'){
-            $inventaires = Inventaire::where(['type' , $type ])->with(['article' , 'article.categorie'])->get();
+        if($type == 'all'){
+            $inventaires = Inventaire::where('valide' , 0)->with(['article' , 'article.categorie' , 'user'])->get();
         }
         else{
-            $inventaires = Inventaire::with(['article' , 'article.categorie' , 'user'])->get();
+            $inventaires = Inventaire::where(['type' => $type , 'valide' => 0 ])->with(['article' , 'article.categorie'])->get();
         }
 
         return view('inventaire.index' , [
-            'inventaires' => $inventaires 
+            'inventaires' => $inventaires
         ]);
     }
 
     public function delete($id){
-        Inventaire::destroy($id);
-        return redirect(route('inventaire'));
+        Inventaire::where('id' , $id)->update(['valide' => 1]);
     }
 }
 

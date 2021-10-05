@@ -89,15 +89,15 @@
 
                     <div class="form-group col-md-6">
                         <label for="exampleInputEmail1">Niveau</label>
-                        <select class="custom-select" id="select" name="level" onchange="reset_categorie()" 
+                        <select class="custom-select" id="selectNiveau" name="level" onchange="reset_categorie()"  >
                         @if($article->categorie)
-                        selected="{{ $article->categorie->level || 1}}">
+                            <option value="{{ $article->categorie->level }}" >{{ $article->categorie->level }}</option>
                         @endif
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value="1" >1</option>
+                            <option value="2" >2</option>
+                            <option value="3" >3</option>
+                            <option value="4" >4</option>
+                            <option value="5" >5</option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">
@@ -128,16 +128,17 @@
 <script>
     const categories = {!! json_encode($categories, JSON_HEX_TAG) !!};
     const reset_categorie = () => {
-        const selected_cat = $("#select").val();
+        const selected_cat = $("#selectNiveau").val();
         console.log(selected_cat)
         if (selected_cat > 0) {
             $("#parent").html('');
             const parents = categories.filter((c) => c.level == selected_cat )
             $.each(parents, function(index, cat) {
-                $("#parent").append($("<option></option>").attr("value", cat.id).text(cat.nom));
+                $("#parent").append($("<option></option>").attr("value", cat.id).text(`${cat.custom_id} ${cat.nom}`));
             });
         }
     }
+    reset_categorie()
 
     FilePond.setOptions({
         server: {

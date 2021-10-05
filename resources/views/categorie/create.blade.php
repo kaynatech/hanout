@@ -48,19 +48,19 @@
                     @foreach ($level_one_categorie as $l1)
                         @if (sizeof($l1->children) > 0)
                             <li>
-                                <div class="listree-submenu-heading">{{ $l1->nom }}</div>
+                                <div class="listree-submenu-heading">{{ $l1->custom_id. '  ' .   $l1->nom }}</div>
                                 <ul class="listree-submenu-items">
                                     {{-- for each l2 --}}
                                     @foreach ($l1->children as $l2)
                                         @if (sizeof($l2->children) > 0)
                                             <li>
-                                                <div class="listree-submenu-heading">{{ $l2->nom }}</div>
+                                                <div class="listree-submenu-heading">{{ $l2->custom_id. '  ' . $l2->nom }}</div>
                                                 <ul class="listree-submenu-items">
                                                     {{-- for each l3 --}}
                                                     @foreach ($l2->children as $l3)
                                                         @if (sizeof($l3->children) > 0)
                                                             <li>
-                                                                <div class="listree-submenu-heading">{{ $l3->nom }}
+                                                                <div class="listree-submenu-heading">{{$l3->custom_id. '  ' . $l3->nom }}
                                                                 </div>
                                                                 <ul class="listree-submenu-items">
                                                                     {{-- for each l4 --}}
@@ -68,14 +68,14 @@
                                                                         @if (sizeof($l4->children) > 0)
                                                                             <li>
                                                                                 <div class="listree-submenu-heading">
-                                                                                    {{ $l4->nom }}
+                                                                                    {{$l4->custom_id. '  ' . $l4->nom }}
                                                                                 </div>
                                                                                 <ul class="listree-submenu-items">
                                                                                     {{-- for each l5 --}}
                                                                                     @foreach ($l4->children as $l5)
 
                                                                                         <li>
-                                                                                            <span>{{ $l5->nom }}</span>
+                                                                                            <span>{{$l5->custom_id. '  ' . $l5->nom }}</span>
                                                                                         </li>
 
                                                                                     @endforeach
@@ -84,7 +84,7 @@
                                                                             </li>
                                                                         @else
                                                                             <li>
-                                                                                <span>{{ $l4->nom }}</span>
+                                                                                <span>{{$l4->custom_id. '  ' . $l4->nom }}</span>
                                                                             </li>
                                                                         @endif
                                                                     @endforeach
@@ -93,7 +93,7 @@
                                                             </li>
                                                         @else
                                                             <li>
-                                                                <span>{{ $l3->nom }}</span>
+                                                                <span>{{$l3->custom_id. '  ' . $l3->nom }}</span>
                                                             </li>
                                                         @endif
                                                     @endforeach
@@ -102,7 +102,7 @@
                                             </li>
                                         @else
                                             <li>
-                                                <span>{{ $l2->nom }}</span>
+                                                <span>{{ $l2->custom_id. '  ' .$l2->nom }}</span>
                                             </li>
                                         @endif
                                     @endforeach
@@ -112,7 +112,7 @@
                             </li>
                         @else
                             <li>
-                                <span>{{ $l1->nom }}</span>
+                                <span>{{$l1->custom_id. '  ' . $l1->nom }}</span>
                             </li>
                         @endif
                     @endforeach

@@ -41,14 +41,13 @@ class Categorie extends Model implements HasMedia
     }
 
     public function  getCustomIdAttribute(){
-        if($this->level == 1){
+        if($this->level == 1 || $this->level == '1'){
             $cats =  $this->Where('level' , 1)->orderBy('updated_at','ASC')->pluck('id')->toArray();
             return array_search($this->id , $cats) + 1;
         }
-        else{
             $cats =  $this->Where('categorie_id' , $this->categorie_id)->orderBy('updated_at','ASC')->pluck('id')->toArray();
-            $partial = sprintf("%01d", array_search($this->id , $cats) + 1 ); 
-            return $this->parent->custom_id . $partial ;
-        }
+            $partial = sprintf("%01d", array_search($this->id , $cats) + 1 );
+            return $this->parent->custom_id . $partial ?? 0 ;
+
     }
 }
