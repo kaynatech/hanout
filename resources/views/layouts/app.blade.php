@@ -87,7 +87,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('vente_temp') }}">
-                                Ventes Temp 
+                                Ventes Temp
                                 <span class="badge badge-light" id="vente_temp_badge">
                                     {{ \App\models\VenteTemp::count() }}
                                 </span>
@@ -98,32 +98,32 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Inventaire 
+                                Inventaire
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('inventaire' , ['type' => 'all'] ) }}">
-                                    Inventaure  
+                                <a class="dropdown-item" href="{{ route('inventaire', ['type' => 'all']) }}">
+                                    Inventaure
                                     <span class="badge badge-light" id="vente_temp_badge">
                                         {{ \App\models\Inventaire::count() }}
                                     </span>
                                 </a>
-                                <a class="dropdown-item" href="{{ route('inventaire' , ['type' => 'vente']) }}">
-                                    Inventaure ventes 
+                                <a class="dropdown-item" href="{{ route('inventaire', ['type' => 'vente']) }}">
+                                    Inventaure ventes
                                 </a>
-                                <a class="dropdown-item" href="{{ route('inventaire' , ['type' => 'perte']) }}">
-                                    Historique des perte
+                                <a class="dropdown-item" href="{{ route('inventaire', ['type' => 'perte']) }}">
+                                    Inventaire des perte
                                 </a>
-                                <a class="dropdown-item" href="{{ route('inventaire' ,['type' => 'trouver'] ) }}">
-                                    Historique des trouver
+                                <a class="dropdown-item" href="{{ route('inventaire', ['type' => 'trouver']) }}">
+                                    Inventaire des trouver
                                 </a>
                                 <a class="dropdown-item" href="{{ route('inventaire', ['type' => 'achat']) }}">
-                                    Historique des achat
+                                    Inventaire des achat
                                 </a>
                                 <a class="dropdown-item" href="{{ route('inventaire', ['type' => 'endomager']) }}">
-                                    Historique des endomager
+                                    Inventaire des endomager
                                 </a>
-                                
+
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -142,7 +142,10 @@
                                 <a class="dropdown-item" href="{{ route('achats_history') }}">
                                     Historique des achats
                                 </a>
-                                
+                                <a class="dropdown-item" href="{{ route('pertes_history') }}">
+                                    Historique des pertes
+                                </a>
+
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -156,7 +159,7 @@
                                     Bon achat non valide
                                 </a>
                                 <a class="dropdown-item" href="{{ route('create_facture_achat') }}">
-                                    nouveau bon achat 
+                                    nouveau bon achat
                                 </a>
 
                             </div>
@@ -198,6 +201,19 @@
                                 <a class="dropdown-item" href="{{ route('pertes_charts') }}">
                                     Statistic des pertes
                                 </a>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Graph Des Caise
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                                    @foreach (App\models\User::assossier()->get() as $user )
+                                    <a class="dropdown-item" href="{{ route('caisse_charts_graph' , ['id' => $user->id]) }}">
+                                        {{ $user->name  }}
+                                    </a>
+                                    @endforeach
+                                    
+
+                                </div>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -208,7 +224,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('commandes-site') }}">
-                                    Liste des commandes 
+                                    Liste des commandes
                                 </a>
                                 <a class="dropdown-item" href="">
                                     List des client
@@ -242,7 +258,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
+                                                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -257,7 +273,7 @@
                 </div>
             </div>
         </nav>
-        
+
 
         <main class="py-4">
             @yield('content')

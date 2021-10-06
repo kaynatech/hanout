@@ -9,6 +9,9 @@ use App\Models\Fournisseur;
 use App\Models\User;
 use Illuminate\Support\Facades\Cache;
 use RahulHaque\Filepond\Facades\Filepond;
+use App\Models\Inventaire;
+use Carbon\Carbon;
+
 
 
 
@@ -35,23 +38,24 @@ class ArticleController extends Controller
         $code = $request->code;
         if ($code) {
             $articles = Article::with([
-                'categorie' ,
+                'categorie',
                 'achats' => function ($q) {
                     $q->orderBy('created_at', 'desc')->first();
                 },
                 'proprietaire'
             ])
-            ->Where(
-                'id' , $code 
-            )->limit(1)->get();
+                ->Where(
+                    'id',
+                    $code
+                )->limit(1)->get();
         } else {
             $articles = Article::with([
-                    'categorie',
-                    'achats' => function ($q) {
-                        $q->orderBy('created_at', 'desc')->first();
-                    },
-                    'proprietaire'
-                ])
+                'categorie',
+                'achats' => function ($q) {
+                    $q->orderBy('created_at', 'desc')->first();
+                },
+                'proprietaire'
+            ])
                 ->Where(
                     [
                         ["designiation", "like", "%$des1%"],
@@ -166,5 +170,39 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail($request->id);
         return $article;
+    }
+    public function stat($id)
+    {
+        $article = Article::find($id);
+        return view('article.stat', [
+            'article' => $article
+        ]);
+    }
+
+    public function statFetch(Request $request,  $id)
+    {
+        $inventaires = Inventaire::articleOf($id);
+        
+        if (!$request->start || !$request->end) {
+            $today_start = Carbon::now()->format('Y-m-d 00:00:00');
+            $today_end = Carbon::now()->format('Y-m-d 23:59:59');
+
+            $inventaires = Inventaire::whereBetween('created_at', [$today_start, $today_end])
+                ->orderBy('id', 'ASC');
+        } else {
+            $start_date = Carbon::parse($request->start)
+                ->toDateTimeString();
+
+            $end_date = Carbon::parse($request->end)
+                ->toDateTimeString();
+            $inventaires = Inventaire::whereBetween('created_at', [$start_date, $end_date])
+                ->orderBy('id', 'ASC');
+        }
+
+
+        $inventaires = $inventaires->articleOf($id)->get();
+        return view('article.statFetch' , [
+            'inventaires' => $inventaires
+        ]);
     }
 }

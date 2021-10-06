@@ -37,7 +37,7 @@
                           <a class="dropdown-item" onclick="achat_modal({{ $article->id }})" href="#">Nouveux Achat</a>
                           <a class="dropdown-item" onclick="declaration_modal({{ $article->id }})" href="#">Declaration</a>
                           <a class="dropdown-item" onclick="rendu_modal({{ $article->id }})" href="#">Rendu</a>
-                          <a class="dropdown-item" onclick="achat_modal({{ $article->id }})">Statistic</a>
+                          <a class="dropdown-item" href="{{ route('article_stat' , ['id' => $article->id])}}">stat</a>
                         </div>
                       </div>
                 </div>

@@ -9,18 +9,13 @@
     </div>
     <script>
         const render = async () =>{
-        const { data } = await axios.get("ventes/api")
-        const ventes = data.map(({ x , y }) => ({x,y}))
-        const gain = data.map(({ x , z }) => ({x,y : z}))
-
+        const { data : dates  } = await axios.get("achats/api")
+        console.log(dates)
         var options = {
             series: [{
-                name: 'Ventes',
-                data: ventes
-            } ,{
-                name: 'Gain',
-                data: gain
-            } ],
+                name: 'Achats',
+                data: dates
+            }],
             chart: {
                 type: 'area',
                 stacked: false,
@@ -41,7 +36,7 @@
                 size: 0,
             },
             title: {
-                text: 'Stock Price Movement',
+                text: 'Achats',
                 align: 'left'
             },
             fill: {

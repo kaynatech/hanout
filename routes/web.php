@@ -13,10 +13,6 @@ use App\Http\Controllers\InventaireController;
 use App\Http\Controllers\VentController;
 use App\Http\Controllers\VenteTempController;
 use App\Http\Controllers\VerificationCaiseController;
-use App\Models\CommandeSite;
-use App\Models\FactureAchat;
-use App\Models\Inventaire;
-use App\Models\VerificationCaise;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -41,6 +37,8 @@ Auth::routes();
 Route::group(["prefix" => "article" , 'middleware' => 'auth'] , function(){
     Route::get('/fetch', [ArticleController::class , 'fetch']);
     Route::post('/fetchWithId', [ArticleController::class , 'fetchWithId'])->name('fetch_with_id_article');
+    Route::get('/stat/{id}' , [ArticleController::class , 'stat'])->name('article_stat');
+    Route::get('/statFetch/{id}' , [ArticleController::class , 'statFetch'])->name('article_statFetch');
     Route::get('/', [ArticleController::class , 'index'])->name("articles");
     Route::get('/create', [ArticleController::class , 'create'])->name("create_article");
     Route::get('/{id}', [ArticleController::class , 'edit'])->name("edit_article");
@@ -104,8 +102,14 @@ Route::group(["prefix" => "history" , "middleware" => "auth"] , function(){
         //
         return view("history.achat.index");
     })->name("achats_history");
-    
     Route::get("/achats/fetch" , [HistoryController::class , 'achats']);
+
+    // perte
+    Route::get("/pertes" , function(){
+        //
+        return view("history.perte.index");
+    })->name("pertes_history");
+    Route::get("/pertes/fetch" , [HistoryController::class , 'pertes']);
   
 });
 
@@ -122,6 +126,10 @@ Route::group(["prefix" => "charts" , "midleware" => "auth"] , function(){
     Route::get("/pertes/api" , [ChartController::class , "pertesApi"]);
     // caise
     Route::get('/caisse' , [CaiseController::class , 'index'])->name('caisse_charts');
+    // caise graph
+    Route::get('/caisseGraph/{id}' , [ChartController::class , 'caise'])->name('caisse_charts_graph');
+    Route::get('/ApicaisseGraph/{id}' , [ChartController::class , 'caiseApi'])->name('caisse_charts_api');
+
 
 });
 

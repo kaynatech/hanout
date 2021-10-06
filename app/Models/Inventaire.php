@@ -17,6 +17,11 @@ class Inventaire extends Model
         'user_id'
     ];
 
+    // scopes 
+    public function scopeArticleOf($query , $article_id){
+        return $query->where('article_id' , $article_id);
+    }
+
     public function article()
     {
         return $this->belongsTo(Article::class);

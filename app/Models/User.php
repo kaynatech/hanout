@@ -75,4 +75,9 @@ class User extends Authenticatable
         }
     }
 
+    // scope
+    public function scopeAssossier($query){
+        return $query->where('role_id' , 4);
+    }
+
 }

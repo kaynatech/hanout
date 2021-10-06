@@ -6,74 +6,33 @@ use App\Models\Achat;
 use App\Models\Rendu;
 use App\Models\Vent;
 use Carbon\Carbon;
+use App\Services\HistoryService;
 use Illuminate\Http\Request;
 
 class HistoryController extends Controller
 {
-    public function vente(Request $request)
+    public function vente(Request $request , HistoryService $service)
     {
-        if (!$request->start || !$request->end) {
-            $today_start = Carbon::now()->format('Y-m-d 00:00:00');
-            $today_end = Carbon::now()->format('Y-m-d 23:59:59');
-
-            $vents = Vent::whereBetween('created_at', [$today_start, $today_end])
-                ->orderBy('id', 'ASC')->get();
-            return view('history.vente.fetch', ["ventes" => $vents]);
-        }
-
-        $start_date = Carbon::parse($request->start)
-            ->toDateTimeString();
-
-        $end_date = Carbon::parse($request->end)
-            ->toDateTimeString();
-        $vents = Vent::whereBetween('created_at', [$start_date, $end_date])
-            ->orderBy('id', 'ASC')->get();
-        return view('history.vente.fetch', ["ventes" => $vents]);
-
+        return $service->getHistory('vent' , $request);
     }
 
-    public function rendu(Request $request)
+    public function rendu(Request $request ,HistoryService $service)
     {
-        if (!$request->start || !$request->end) {
-            $today_start = Carbon::now()->format('Y-m-d 00:00:00');
-            $today_end = Carbon::now()->format('Y-m-d 23:59:59');
-
-            $rendus = Rendu::whereBetween('created_at', [$today_start, $today_end])
-                ->orderBy('id', 'ASC')->get();
-            return view('history.rendu1.fetch', ["rendus" => $rendus]);
-        }
-
-        $start_date = Carbon::parse($request->start)
-            ->toDateTimeString();
-
-        $end_date = Carbon::parse($request->end)
-            ->toDateTimeString();
-        $rendus = Rendu::whereBetween('created_at', [$start_date, $end_date])
-            ->orderBy('id', 'ASC')->get();
-        return view('history.rendu1.fetch', ["rendus" => $rendus]);
-
+        return $service->getHistory('rendu' , $request);
     }
 
-    public function achats(Request $request)
+    public function achats(Request $request , HistoryService $service)
     {
-        if (!$request->start || !$request->end) {
-            $today_start = Carbon::now()->format('Y-m-d 00:00:00');
-            $today_end = Carbon::now()->format('Y-m-d 23:59:59');
+        return $service->getHistory('achat' , $request); 
+    }
 
-            $achats = Achat::whereBetween('created_at', [$today_start, $today_end])
-                ->where('valide' , 1)
-                ->orderBy('id', 'ASC')->get();
-            return view('history.achat.fetch', ["achats" => $achats]);
-        }
+    public function pertes(Request $request , HistoryService $service)
+    {
+        return $service->getHistory('perte' , $request); 
+    }
 
-        $start_date = Carbon::parse($request->start)
-            ->toDateTimeString();
-
-        $end_date = Carbon::parse($request->end)
-            ->toDateTimeString();
-        $achats = Achat::whereBetween('created_at', [$start_date, $end_date])
-            ->where('valide' , 1)
-            ->orderBy('id', 'ASC')->get();
-            return view('history.achat.fetch', ["achats" => $achats]);
+    public function trouver(Request $request , HistoryService $service)
+    {
+        return $service->getHistory('trouver' , $request);    
     }
 }
