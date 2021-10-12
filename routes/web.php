@@ -110,6 +110,13 @@ Route::group(["prefix" => "history" , "middleware" => "auth"] , function(){
         return view("history.perte.index");
     })->name("pertes_history");
     Route::get("/pertes/fetch" , [HistoryController::class , 'pertes']);
+
+        // perte
+        Route::get("/caisses/{id}" , function($id){
+            //
+            return view("history.caisse.index" , ['id' => $id ]);
+        })->name("caisse_history");
+        Route::get("/caisses/{id}/fetch" , [HistoryController::class , 'caisses']);
   
 });
 
@@ -200,4 +207,8 @@ Route::group(['prefix'=> 'inventaire' ,  "middleware" => "auth"] , function(){
 });
 
 // verification de caise
-Route::get('/verification_caise/{id}' , [VerificationCaiseController::class , 'index']) ;
+Route::group(['prefix' => 'verification_caise' , 'middleware' => 'auth'] , function(){
+    Route::get('{id}' , [VerificationCaiseController::class , 'index'])->name('verification_caisse') ;
+    Route::post('/' , [VerificationCaiseController::class , 'store'])->name('verification_caisse_post') ;
+
+});

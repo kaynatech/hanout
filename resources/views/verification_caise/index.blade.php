@@ -47,7 +47,7 @@
                 </h4>
             </div>
             <div class="col-md-8">
-                <input id="ventes" class="form-control" type="text">
+                <input id="ventes" class="form-control" type="text" value="{{ $verification->ventes}}" >
 
             </div>
             <div class="col-md-4">
@@ -67,7 +67,7 @@
             </div>
             <div class="col-md-8">
                 <h3 id="caisse_reel">
-                    {{ $verification->owner->caisse->valeur}}
+                    {{ $caisse->valeur}}
                 </h3>
             </div>
             <div class="col-md-4">
@@ -91,6 +91,9 @@
 
                 </h3>
             </div>
+            <div class="col-md-8">
+                <button class="btn btn-success" onclick="val()"> Verifier </button>
+            </div>
         </div>
     </div>
     <script>
@@ -105,7 +108,7 @@
             const a1000 = $('#a1000').val()
             const a2000 = $('#a2000').val()
             const ventes = $('#ventes').val()
-            const caisse_reel = $('#caisse_reel').val()
+            const caisse_reel = $('#caisse_reel').html()
             const total = 
                 a5 * 5 + 
                 a10 * 10 +
@@ -116,8 +119,34 @@
                 a1000 * 1000 + 
                 a2000 * 2000 + 
                 ventes ;
-            $('#diff') .html(`${caisse_reel - total }`)
+            $('#caisse').html(total)
+            $('#diff').html(`${caisse_reel - total }`)
         }
         calculate()
+
+        async function val (){
+            try{
+                const { data } = await axios.post('{{ route('verification_caisse_post' ) }} ', {
+            a5         : $('#a5').val(),
+            a10        : $('#a10').val(),
+            a20        : $('#a20').val(),
+            a50        : $('#a50').val(),
+            a100       : $('#a100').val(),
+            a200       : $('#a200').val(),
+            a500       : $('#a500').val(),
+            a1000      : $('#a1000').val(),
+            a2000      : $('#a2000').val(),
+            total      : $('#caisse').html(),
+            decalage   : $('#diff').html(),
+            caise_reel : $('#caisse_reel').html(),
+            user_id    : {{ $caisse->user_id }},
+            ventes     : $('#a5').val(),
+                })
+            Swal.fire('Verification fait')
+            location.reload()
+            }catch(err){
+
+            }
+        }
     </script>
 @endsection

@@ -22,7 +22,8 @@ class VerificationCaise extends Model
         'decalage',
         'caise_reel',
         'user_id',
-        'changer_id'
+        'changer_id',
+        'ventes'
     ];
 
     public function changer(){

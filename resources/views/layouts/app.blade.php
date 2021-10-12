@@ -31,6 +31,8 @@
     <link href="{{ asset('css/filepond.min.css') }}" rel="stylesheet">
     <link href="/css/filepond.min.css" rel="stylesheet">
 
+    
+
 
 
 </head>
@@ -145,6 +147,17 @@
                                 <a class="dropdown-item" href="{{ route('pertes_history') }}">
                                     Historique des pertes
                                 </a>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Historique des caisses
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                                    @foreach (App\models\User::assossier()->get() as $user )
+                                    <a class="dropdown-item" href="{{ route('caisse_history' , ['id' => $user->id]) }}">
+                                        {{ $user->name  }}
+                                    </a>
+                                    @endforeach
+                                </div>
 
                             </div>
                         </li>
@@ -161,6 +174,17 @@
                                 <a class="dropdown-item" href="{{ route('create_facture_achat') }}">
                                     nouveau bon achat
                                 </a>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Verification des caisses
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                                    @foreach (App\models\User::assossier()->get() as $user )
+                                    <a class="dropdown-item" href="{{ route('verification_caisse' , ['id' => $user->id]) }}">
+                                        {{ $user->name  }}
+                                    </a>
+                                    @endforeach
+                                </div>
 
                             </div>
                         </li>
@@ -211,8 +235,6 @@
                                         {{ $user->name  }}
                                     </a>
                                     @endforeach
-                                    
-
                                 </div>
                             </div>
                         </li>
@@ -286,6 +308,10 @@
             update_badge()
         }, 300);
     </script>
+
+    <script src="{!! asset('js/sweetalert2.js')!!}"></script>
+
+
 </body>
 
 </html>

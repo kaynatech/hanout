@@ -31,8 +31,12 @@ class HistoryController extends Controller
         return $service->getHistory('perte' , $request); 
     }
 
-    public function trouver(Request $request , HistoryService $service)
+    public function trouver(Request $request , HistoryService $service )
     {
-        return $service->getHistory('trouver' , $request);    
+        return $service->getHistory('trouver' , $request );    
+    }
+
+    public function caisses(Request $request , HistoryService $service , $id){
+        return $service->getHistory('caisse' , $request, $id);    
     }
 }

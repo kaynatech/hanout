@@ -4,6 +4,7 @@ namespace App\Services ;
 use App\Models\Vent;
 use App\Models\Rendu;
 use App\Models\Achat;
+use App\Models\Caise;
 use App\Models\Perte;
 use App\Models\Trouver;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ use Carbon\Carbon;
 
 class HistoryService
 {
-    public function getHistory($model, Request $request)
+    public function getHistory($model, Request $request , $id = 0)
     {
         if (!$request->start || !$request->end) {
             $start_date = Carbon::now()->format('Y-m-d 00:00:00');
@@ -55,7 +56,11 @@ class HistoryService
                 ->where('etat' , 1)
                 ->orderBy('id', 'ASC')->get();
                 return view('history.trouver.fetch', ["trouvers" => $trouvers]);
-
+            case('caisse'):
+                $caisses = Caise::whereBetween('created_at', [$start_date, $end_date])
+                ->where('user_id' ,$id  )
+                ->orderBy('id', 'DESC')->get();
+                return view('history.caisse.fetch', ["caisses" => $caisses]);
             endswitch;
     }
 }

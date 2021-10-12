@@ -186,6 +186,8 @@
         const validate = async () => {
             try {
                 const { data } = await axios.post('{!! route("validate_facture_achat" , ["id" => $id ])  !!}')
+                Swal.fire('Facture achat valide')
+                location.reload()
             } catch (error) {
                 
             }
